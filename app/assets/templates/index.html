@@ -1,0 +1,26 @@
+<h1>list app</h1>
+
+<form action="javascript:void(0);" ng-submit="addList()">
+	<input type="text" ng-model = "newList.task" placeholder = "Task" autofocus required>
+	<input type="text" ng-model = "newList.description" placeholder ="Description" required>
+	<input type="text" ng-model = "newList.complete" placeholder="complete">
+	<button>Add Button</button>
+</form>
+	
+<ul ng-repeat = "list in lists" >
+	<p> List #{{list.id}}
+		<li>Task - {{list.task}}</li>
+		<li>Description - {{list.description}}</li>
+		<li>Complete? - {{list.comlete}}</li>
+	</p>
+
+	<button ng-click ="deleteList(list)">Destruction</button>
+
+	<input type="checkbox" ng-model="checked" id="editing{{$index}}"><label for = "editing{{$index}}">Edit</label>
+	<form ng-submit="editList(list)" ng-show="checked">
+		<input type="text" ng-model="list.task">
+		<input type="text" ng-model="list.description">
+		<input type="text" ng-model="list.complete">
+		<button>Submit</button>
+	</form>
+</ul>

@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20140915093139) do
   create_table "lists", force: true do |t|
     t.string   "task"
     t.string   "description"
-    t.string   "complete"
+    t.boolean  "complete"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
